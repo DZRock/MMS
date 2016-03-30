@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%-5level[ %d{HH:mm:ss dd.MM} ] %logger{14}.%M:%L %msg%n%ex{20}</Pattern>
+        </layout>
+    </appender>
+
+    <logger name="org.springframework" level="warn"/>
+    <logger name="org.hibernate" level="warn"/>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+
+</configuration>
