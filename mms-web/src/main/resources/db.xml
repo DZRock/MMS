@@ -4,14 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <jpa:repositories base-package="ru.kubsu.mms.core.db.repo"
-                                 transaction-manager-ref="transactionManager"
-                                 entity-manager-factory-ref="entityManagerFactory"/>
+                      transaction-manager-ref="transactionManager"
+                      entity-manager-factory-ref="entityManagerFactory"/>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource">
             <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource">
                 <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mms_db"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/ohm_db"/>
                 <property name="username" value="admin"/>
                 <property name="password" value="admin"/>
             </bean>
@@ -22,6 +22,7 @@
         </property>
         <property name="jpaProperties">
             <props>
+                <!--<prop key="eclipselink.ddl-generation">drop-and-create-tables</prop>-->
                 <prop key="eclipselink.cache.shared.default">false</prop>
                 <prop key="eclipselink.weaving">false</prop>
             </props>
@@ -32,5 +33,4 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
-
 </beans>
