@@ -3,3 +3,6 @@
 */target
 *.iml
 /nbproject/
+/.idea/
+/out/
+*/target/
