@@ -18,13 +18,14 @@ public class DateToStringConverter extends DozerConverter<Date,String> {
     @Override
     public String convertTo(Date date, String s) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-
+        if(date==null)return "";
         return simpleDateFormat.format(date);
     }
 
     @Override
     public Date convertFrom(String s, Date date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        if(s==null)return null;
         try {
             return simpleDateFormat.parse(s);
         } catch (ParseException e) {

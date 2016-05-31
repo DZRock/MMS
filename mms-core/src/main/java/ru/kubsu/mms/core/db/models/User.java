@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "type")
-public class User extends BasecEntity implements Serializable {
+public class User extends BasicEntity implements Serializable {
 
     @Column(name = "password")
     private String password;

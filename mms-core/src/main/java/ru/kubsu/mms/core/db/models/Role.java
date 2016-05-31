@@ -9,5 +9,5 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "roles")
-public class Role extends BasecEntity implements Serializable {
+public class Role extends BasicEntity implements Serializable {
 }

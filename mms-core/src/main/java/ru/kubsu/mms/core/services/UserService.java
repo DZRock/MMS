@@ -17,7 +17,6 @@ public interface UserService {
     void updateUser(User user);
     void blockUser(Long userId);
     void changePasswordByEmail(String email);
-    void registrationUser(User user);
 
-    void registerUser(User map);
+    void registerUser(User map) throws Exception;
 }

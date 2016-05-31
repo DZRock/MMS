@@ -5,21 +5,95 @@
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
     <mapping>
-        <class-a>ru.kubsu.ohm.core.db.models.User</class-a>
-        <class-b>ru.kubsu.ohm.web.dto.UserDto</class-b>
-        <field custom-converter="ru.kubsu.ohm.web.converters.DateToStringConverter">
+        <class-a>ru.kubsu.mms.core.db.models.User</class-a>
+        <class-b>ru.kubsu.mms.web.dto.UserDto</class-b>
+        <field custom-converter="ru.kubsu.mms.web.converters.DateToStringConverter">
             <a>birthDate</a>
             <b>birthDate</b>
         </field>
     </mapping>
 
     <mapping>
-        <class-a>ru.kubsu.ohm.core.db.models.User</class-a>
-        <class-b>ru.kubsu.ohm.web.dto.RegistrationUserDto</class-b>
-        <field custom-converter="ru.kubsu.ohm.web.converters.DateToStringConverter">
+        <class-a>ru.kubsu.mms.core.db.models.User</class-a>
+        <class-b>ru.kubsu.mms.web.dto.RegistrationUserDto</class-b>
+        <field custom-converter="ru.kubsu.mms.web.converters.DateToStringConverter">
             <a>birthDate</a>
             <b>birthDate</b>
         </field>
     </mapping>
 
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.User</class-a>
+        <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.Equipment</class-a>
+        <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
+        <field>
+            <a>model</a>
+            <b>name</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.Vender</class-a>
+        <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.Location</class-a>
+        <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.Equipment</class-a>
+        <class-b>ru.kubsu.mms.web.dto.EquipmentDTO</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field>
+            <a>model</a>
+            <b>model</b>
+        </field>
+        <field custom-converter="ru.kubsu.mms.web.converters.DateToStringConverter">
+            <a>startUpDate</a>
+            <b>startUpDate</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.TechControl</class-a>
+        <class-b>ru.kubsu.mms.web.dto.TechControlDTO</class-b>
+        <field custom-converter="ru.kubsu.mms.web.converters.DateToStringConverter">
+            <a>lastSupportDate</a>
+            <b>lastSupportDate</b>
+        </field>
+        <field>
+            <a>status.systemName</a>
+            <b>systemStatus</b>
+        </field>
+        <field>
+            <a>equipment.name</a>
+            <b>name</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.MetroControl</class-a>
+        <class-b>ru.kubsu.mms.web.dto.MetroControlDTO</class-b>
+        <field custom-converter="ru.kubsu.mms.web.converters.DateToStringConverter">
+            <a>lastSupportDate</a>
+            <b>lastSupportDate</b>
+        </field>
+        <field>
+            <a>status.systemName</a>
+            <b>systemStatus</b>
+        </field>
+        <field>
+            <a>equipment.name</a>
+            <b>name</b>
+        </field>
+    </mapping>
 </mappings>

@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.kubsu.mms.web.dto.LoginDto;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by DZRock on 31.03.2016.
  */
@@ -45,6 +48,12 @@ public class LoginController {
             return "redirect:/login";
         }
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String logout(HttpServletRequest req) throws ServletException {
+        req.logout();
+        return "redirect:/login";
     }
 
 }

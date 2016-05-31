@@ -30,53 +30,28 @@
 
         var requestObject = {${_csrf.parameterName}:"${_csrf.token}"};
 
-        $(document).ready(function(){
-
-        });
-
     </script>
     <t:insertAttribute name="headers"/>
 </head>
 <body>
-    <div>
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Данные о пользователе</div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-lg" data-toggle="collapse" data-target="#userdata">Данные о пользователе</a>
-                        <div id="userdata" class="collapse">
-                            <ul>
-                                <li>${pageContext.request.userPrincipal.principal.name}</li>
-                                <li>${pageContext.request.userPrincipal.principal.email}</li>
-                                <li>${pageContext.request.userPrincipal.principal.birthDate}</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-lg" data-toggle="collapse" data-target="#indicatorsInfo">Информация о показателях</a>
-                        <div class="collapse" id="indicatorsInfo">
-                            <ul id="indicatorsList">
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <a type="button" class="btn btn-lg" data-toggle="modal" data-target="#add-value-modal" id="add-value-show">Зарегестрировать значение</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a type="button" class="btn btn-lg" data-toggle="modal" data-target="#edit-dashboard-modal" id="edit-dash-show">Настроить дашборд</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/logout" class="btn btn-lg">Выйти</a>
-                    </li>
-                </ul>
+    <t:insertAttribute name="content"/>
+
+    <%--msg modal--%>
+    <div id="msg-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Сообщение</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msg-body"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
             </div>
         </div>
-        <div class="col-md-8">
-            <t:insertAttribute name="content"/>
-        </div>
     </div>
-
-
 </body>
 </html>
