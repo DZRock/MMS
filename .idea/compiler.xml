@@ -22,20 +22,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="mms-core" />
         <module name="mms-web" />
       </profile>
-      <profile default="false" name="Annotation profile for mms-core" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="mms-core" />
-      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="MMS" target="1.5" />
-      <module name="mms-core" target="1.7" />
-      <module name="mms-web" target="1.5" />
+      <module name="mms-core" target="1.8" />
+      <module name="mms-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

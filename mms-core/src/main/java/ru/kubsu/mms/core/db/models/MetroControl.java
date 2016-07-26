@@ -1,7 +1,9 @@
 package ru.kubsu.mms.core.db.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by DZRock on 14.05.2016.
@@ -23,9 +25,30 @@ public class MetroControl extends BasicEntity {
     @ManyToOne
     @JoinColumn(name = "status_id",referencedColumnName = "id")
     private Status status;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "equipment_id")
     private Equipment equipment;
+    @OneToMany(mappedBy = "metroControl",cascade = CascadeType.ALL)
+    private List<MetroCheckout> metroCheckouts = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "control_organisation_id")
+    private ControlOrganisation organisation;
+
+    public ControlOrganisation getOrganisation() {
+        return organisation;
+    }
+
+    public void setOrganisation(ControlOrganisation organisation) {
+        this.organisation = organisation;
+    }
+
+    public List<MetroCheckout> getMetroCheckouts() {
+        return metroCheckouts;
+    }
+
+    public void setMetroCheckouts(List<MetroCheckout> metroCheckouts) {
+        this.metroCheckouts = metroCheckouts;
+    }
 
     public User getResponsibleUser() {
         return responsibleUser;

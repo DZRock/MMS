@@ -3,30 +3,21 @@ package ru.kubsu.mms.web.dto;
 /**
  * Created by DZRock on 16.05.2016.
  */
-public class EquipmentDTO{
+public class EquipmentDTO extends IdNameDto{
 
-    private Long id;
-    private String name;
     private String model;
     private String startUpDate;
     private IdNameDto vender;
     private IdNameDto location;
     private String factoryNumber;
+    private String inventoryNumber;
 
-    public Long getId() {
-        return id;
+    public String getInventoryNumber() {
+        return inventoryNumber;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setInventoryNumber(String inventoryNumber) {
+        this.inventoryNumber = inventoryNumber;
     }
 
     public IdNameDto getLocation() {

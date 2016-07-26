@@ -27,6 +27,26 @@ public class Equipment extends BasicEntity {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "equipment")
     private List<TechControl> techControls =new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "equipment")
+    private List<MetroControl> metroControls =new ArrayList<>();
+    @Column(name = "inventory_number")
+    private String inventoryNumber;
+
+    public List<MetroControl> getMetroControls() {
+        return metroControls;
+    }
+
+    public void setMetroControls(List<MetroControl> metroControls) {
+        this.metroControls = metroControls;
+    }
+
+    public String getInventoryNumber() {
+        return inventoryNumber;
+    }
+
+    public void setInventoryNumber(String inventoryNumber) {
+        this.inventoryNumber = inventoryNumber;
+    }
 
     public String getModel() {
         return model;

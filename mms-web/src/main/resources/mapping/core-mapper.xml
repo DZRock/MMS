@@ -28,6 +28,16 @@
     </mapping>
 
     <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.ControlOrganisation</class-a>
+        <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.ControlOrganisation</class-a>
+        <class-b>ru.kubsu.mms.web.dto.OrganisationDTO</class-b>
+    </mapping>
+
+    <mapping>
         <class-a>ru.kubsu.mms.core.db.models.Equipment</class-a>
         <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
         <field>
@@ -49,14 +59,6 @@
     <mapping>
         <class-a>ru.kubsu.mms.core.db.models.Equipment</class-a>
         <class-b>ru.kubsu.mms.web.dto.EquipmentDTO</class-b>
-        <field>
-            <a>name</a>
-            <b>name</b>
-        </field>
-        <field>
-            <a>model</a>
-            <b>model</b>
-        </field>
         <field custom-converter="ru.kubsu.mms.web.converters.DateToStringConverter">
             <a>startUpDate</a>
             <b>startUpDate</b>
@@ -74,10 +76,6 @@
             <a>status.systemName</a>
             <b>systemStatus</b>
         </field>
-        <field>
-            <a>equipment.name</a>
-            <b>name</b>
-        </field>
     </mapping>
 
     <mapping>
@@ -91,9 +89,46 @@
             <a>status.systemName</a>
             <b>systemStatus</b>
         </field>
+    </mapping>
+    
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.MetroCheckout</class-a>
+        <class-b>ru.kubsu.mms.web.dto.MetroCheckoutDTO</class-b>
         <field>
-            <a>equipment.name</a>
-            <b>name</b>
+            <a date-format="dd.MM.yyyy">checkoutDate</a>
+            <b>checkoutDate</b>
         </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.TechCheckout</class-a>
+        <class-b>ru.kubsu.mms.web.dto.TechCheckoutDTO</class-b>
+        <field>
+            <a date-format="dd.MM.yyyy">checkoutDate</a>
+            <b>checkoutDate</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.TechControl</class-a>
+        <class-b>ru.kubsu.mms.web.dto.TechControlExtendedDTO</class-b>
+        <field>
+            <a>techCheckouts</a>
+            <b>checkouts</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.MetroControl</class-a>
+        <class-b>ru.kubsu.mms.web.dto.MetroControlExtendedDTO</class-b>
+        <field>
+            <a>metroCheckouts</a>
+            <b>checkouts</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>ru.kubsu.mms.core.db.models.File</class-a>
+        <class-b>ru.kubsu.mms.web.dto.IdNameDto</class-b>
     </mapping>
 </mappings>

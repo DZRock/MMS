@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
   <artifact type="war" name="mms-web:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/mms_web_war</output-path>
-    <root id="archive" name="mms-web_war.war">
-      <element id="artifact" artifact-name="mms-web" />
+    <output-path>$PROJECT_DIR$/mms-web/target</output-path>
+    <root id="archive" name="mms-web-0.0.1.war">
+      <element id="artifact" artifact-name="mms-web:war exploded" />
     </root>
   </artifact>
 </component>

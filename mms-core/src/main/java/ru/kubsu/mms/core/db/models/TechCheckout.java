@@ -1,7 +1,9 @@
 package ru.kubsu.mms.core.db.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by DZRock on 17.05.2016.
@@ -22,6 +24,28 @@ public class TechCheckout {
     @ManyToOne
     @JoinColumn(name = "responsible_user_id",referencedColumnName = "id")
     private User responsibleUser;
+    @ManyToOne
+    @JoinColumn(name = "tech_control_id",referencedColumnName = "id")
+    private TechControl techControl;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "tech_ckeckout_files",joinColumns = @JoinColumn(name = "id_tech"), inverseJoinColumns = @JoinColumn(name = "id_file"))
+    private List<File> files = new ArrayList<>();
+
+    public List<File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
+
+    public TechControl getTechControl() {
+        return techControl;
+    }
+
+    public void setTechControl(TechControl techControl) {
+        this.techControl = techControl;
+    }
 
     public User getResponsibleUser() {
         return responsibleUser;

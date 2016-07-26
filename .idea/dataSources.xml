@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4191566514">
+  <component name="DataSourceManagerImpl" format="xml" hash="2738504717">
     <data-source source="LOCAL" name="mms_db@localhost" uuid="6de1d4b5-2e60-4bd0-b7f0-78fc6cb19256">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -13,6 +13,18 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="Sqlite (Xerial) - mms_portable_db.db" uuid="eeedab57-5804-4d89-8d7f-822f3c7b4248">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:/mms_portable_db.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="H2 - mms_emb.mv.db" uuid="3ce6b4bf-07d6-4ef6-8c9d-a6817f424135">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:C:/mms/mms_emb.mv.db</jdbc-url>
     </data-source>
   </component>
 </project>

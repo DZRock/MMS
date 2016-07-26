@@ -13,6 +13,15 @@ public class TechControlDTO extends IdNameDto {
     private String lastSupportDate;
     private IdNameDto status;
     private String systemStatus;
+    private IdNameDto organisation;
+
+    public IdNameDto getOrganisation() {
+        return organisation;
+    }
+
+    public void setOrganisation(IdNameDto organisation) {
+        this.organisation = organisation;
+    }
 
     public String getSystemStatus() {
         return systemStatus;

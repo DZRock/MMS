@@ -24,8 +24,16 @@
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/bower/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/bower/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/bower/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css/">
+
     <script>
         $(document).ready(function(){
+
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD.MM.YYYY'
+            });
 
             $('body').on('click','#submitForm',function(){
                 $('.has-error').removeClass('bg-danger');

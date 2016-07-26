@@ -1,7 +1,9 @@
 package ru.kubsu.mms.core.db.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by DZRock on 14.05.2016.
@@ -27,9 +29,30 @@ public class TechControl extends BasicEntity {
     @ManyToOne
     @JoinColumn(name = "status_id",referencedColumnName = "id")
     private Status status;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "equipment_id")
     private Equipment equipment;
+    @OneToMany(mappedBy = "techControl",cascade = CascadeType.ALL)
+    private List<TechCheckout> techCheckouts = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "control_organisation_id")
+    private ControlOrganisation organisation;
+
+    public ControlOrganisation getOrganisation() {
+        return organisation;
+    }
+
+    public void setOrganisation(ControlOrganisation organisation) {
+        this.organisation = organisation;
+    }
+
+    public List<TechCheckout> getTechCheckouts() {
+        return techCheckouts;
+    }
+
+    public void setTechCheckouts(List<TechCheckout> techCheckouts) {
+        this.techCheckouts = techCheckouts;
+    }
 
     public User getResponsibleUser() {
         return responsibleUser;

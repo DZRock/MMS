@@ -10,10 +10,10 @@
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource">
             <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-                <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mms_db"/>
-                <property name="username" value="admin"/>
-                <property name="password" value="admin"/>
+                <property name="driverClassName" value="org.h2.Driver"/>
+                <property name="url" value="jdbc:h2:C:/mms/mms_emb.mv.db"/>
+                <property name="username" value="sa"/>
+                <property name="password" value="sa"/>
             </bean>
         </property>
         <property name="packagesToScan" value="ru.kubsu.mms.core.db.models"/>
@@ -22,7 +22,11 @@
         </property>
         <property name="jpaProperties">
             <props>
+                <!--Comment next line to disable tables auto generation-->
+                <prop key="eclipselink.ddl-generation">create-or-extend-tables</prop>
                 <!--<prop key="eclipselink.ddl-generation">drop-and-create-tables</prop>-->
+                <prop key="eclipselink.ddl-generation.output-mode">database</prop>
+                <prop key="eclipselink.target-database">org.eclipse.persistence.platform.database.H2Platform</prop>
                 <prop key="eclipselink.cache.shared.default">false</prop>
                 <prop key="eclipselink.weaving">false</prop>
             </props>

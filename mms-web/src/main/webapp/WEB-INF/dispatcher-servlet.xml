@@ -11,6 +11,8 @@
 
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/bower/**" location="/bower_components/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
+
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
@@ -21,4 +23,6 @@
         </property>
     </bean>
 
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 </beans>

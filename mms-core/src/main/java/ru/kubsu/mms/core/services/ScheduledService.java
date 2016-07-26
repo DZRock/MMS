@@ -11,6 +11,7 @@ import ru.kubsu.mms.core.db.repo.StatusRepo;
 import ru.kubsu.mms.core.db.repo.TechControlRepo;
 import sun.util.resources.cldr.ta.CalendarData_ta_IN;
 
+import javax.ejb.Init;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,6 @@ import java.util.List;
  */
 @Service
 public class ScheduledService {
-
 
     @Qualifier("techControlRepo")
     @Autowired
@@ -33,7 +33,7 @@ public class ScheduledService {
     private StatusRepo statusRepo;
 
 
-    @Scheduled(cron = "0 0 1 * * *")
+    @Scheduled(cron = "0 0/1 * * * *")
     private void generateControls(){
         List<TechControl> tec = (List<TechControl>) techControlRepo.findAll();
         for(TechControl tc:tec){
@@ -46,7 +46,7 @@ public class ScheduledService {
 
             if((now.get(Calendar.DAY_OF_YEAR)>tcCheckoutDate.get(Calendar.DAY_OF_YEAR))
             && (now.get(Calendar.YEAR)>=tcCheckoutDate.get(Calendar.YEAR))){
-                tc.setStatus(statusRepo.findBySystemName("need_checkout"));
+                tc.setStatus(statusRepo.findBySystemName("need_checkout_to"));
             }
 
         }
@@ -63,7 +63,7 @@ public class ScheduledService {
 
             if((now.get(Calendar.DAY_OF_YEAR)>mcCheckoutDate.get(Calendar.DAY_OF_YEAR))
                     && (now.get(Calendar.YEAR)>=mcCheckoutDate.get(Calendar.YEAR))){
-                mc.setStatus(statusRepo.findBySystemName("need_checkout"));
+                mc.setStatus(statusRepo.findBySystemName("need_checkout_mo"));
             }
         }
         metroControlRepo.save(mec);
